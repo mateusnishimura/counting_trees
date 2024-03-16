@@ -2,7 +2,15 @@ import cv2
 import numpy as np
 
 def get_heterogeneity(polygons):
+    """
+    Calculates the heterogeneity of areas represented by a list of contours.
 
+    Parameters:
+    polygons (list): A list of contours representing areas.
+
+    Returns:
+    float: The heterogeneity value.
+    """
     areas = [cv2.contourArea(contour) for contour in polygons]
 
     # Find the maximum area value

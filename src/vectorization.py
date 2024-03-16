@@ -6,7 +6,15 @@ from PIL import Image
 import cv2
 
 def create_geometry(image):
-    
+    """
+    Creates geometries (polygons) from contours found in a binary image.
+
+    Parameters:
+    image (numpy.ndarray): The binary image containing contours.
+
+    Returns:
+    tuple: A tuple containing a GeoDataFrame with the polygons and a list of contours.
+    """
     contours, _ = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
     # Creates list to store polygons
@@ -33,6 +41,16 @@ def create_geometry(image):
     return gdf, contours
 
 def generate_image(original_image, image):
+    """
+    Generates an image with vector geometries overlaid on the original image.
+
+    Parameters:
+    original_image (numpy.ndarray): The original image.
+    image (numpy.ndarray): The binary image containing contours.
+
+    Returns:
+    list: A list of contours found in the image.
+    """
     # Load the GeoJSON file with vector geometries
     gdf, contours = create_geometry(image)
 
@@ -57,6 +75,12 @@ def generate_image(original_image, image):
     return contours
 
 def count_trees():
+    """
+    Counts the number of trees found in a GeoDataFrame generated from the shapefile.
+
+    Returns:
+    int: The number of trees found.
+    """
     gdf = gpd.read_file("./shapefile.geojson")
     print(f"Árvores encontradas: {len(gdf)}")
     return len(gdf)

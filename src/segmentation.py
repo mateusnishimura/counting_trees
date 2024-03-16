@@ -36,7 +36,6 @@ def remove_shadow(image):
     contours, _ = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
     big_shadow = 1000  
-    small_points = 50
 
     # Iterate over the contours
     for contour in contours:
@@ -45,7 +44,7 @@ def remove_shadow(image):
         area = cv2.contourArea(contour)
         
         # Filter contours based on size
-        if area > big_shadow or area < small_points:
+        if area > big_shadow:
 
             cv2.drawContours(image, [contour], 0, 0, -1)
             

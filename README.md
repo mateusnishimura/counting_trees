@@ -7,6 +7,10 @@ Este é um projeto desenvolvido para segmentação, contagem de árvores e ident
 Para instalar as dependências necessárias, use o seguinte comando:
 
 ```bash
+python -m venv env
+
+source env/bin/activate
+
 pip install -r requirements.txt
 ```
 

@@ -45,7 +45,7 @@ def generate_image(original_image, image):
         if geom.geom_type == 'Polygon':
             # Convert coordinates into a format accepted by patches.Polygon
             xy = [(x, y) for x, y in zip(*geom.exterior.xy)]
-            patch = patches.Polygon(xy, edgecolor='r', linewidth=2, facecolor='none')
+            patch = patches.Polygon(xy, edgecolor='none', facecolor='r', alpha=0.5) 
             ax.add_patch(patch)
     
     plt.axis('off')        

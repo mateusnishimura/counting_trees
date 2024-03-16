@@ -98,17 +98,17 @@ def transform_hsv(img):
     matiz = imagem_hsv[:,:,0]
     saturacao = imagem_hsv[:,:,1]
     valor = imagem_hsv[:,:,2]
+    cv2.imwrite("./preprocessed/hsv.tif", imagem_hsv)
     
     matiz, saturacao, valor = cv2.split(imagem_hsv)
     matiz = np.uint8(matiz * 2)
     imagem_hsv = np.uint(imagem_hsv * 2)
     saturacao = np.uint8(saturacao * 2)
-    valor = np.uint8(valor * 2)
     
     cv2.imwrite("./preprocessed/matiz.tif", matiz)
     cv2.imwrite("./preprocessed/saturacao.tif", saturacao)
     cv2.imwrite("./preprocessed/valor.tif", valor)
-    
+
     cv2.imread("./preprocessed/matiz.tif")
     cv2.imread("./preprocessed/saturacao.tif")
     cv2.imread("./preprocessed/valor.tif")

@@ -17,7 +17,7 @@ def segmentation(image):
     # Function to remove shadow from large tree (sample2) and small points, counted as trees
     segmentated = remove_shadow(segmentated)
     
-    cv2.imwrite(f"./segmentation_results/segmented.tif", segmentated)
+    cv2.imwrite(f"./segmentation_result/segmented.tif", segmentated)
     
     return segmentated
 

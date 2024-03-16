@@ -1,0 +1,5 @@
+env/
+preprocessed/
+result/
+segmentation_result/
+*.geojson
